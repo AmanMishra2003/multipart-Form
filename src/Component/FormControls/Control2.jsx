@@ -6,6 +6,7 @@ function Control2({changeStage}) {
     const [error , setError] = useState(false)
 
     function handleChange(e){
+        setError(false);
         const name = e.target.name;
         const value = e.target.value;
 
@@ -40,7 +41,7 @@ function Control2({changeStage}) {
         <form className="ControlContainer" onSubmit={handleSubmission}>
             <h3>Address Details</h3>
             {
-                error && <h5>Every feild is required field...</h5>
+                error ? <h5>Every feild is required field...</h5> : <h5 style={{visibility:'hidden'}}>Invisible Text...</h5>
             }
             <div className="controls" style={{alignItems:"start"}} >
                 <label htmlFor="streetAddress">Street Address :</label>
